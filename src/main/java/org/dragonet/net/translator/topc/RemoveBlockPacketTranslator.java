@@ -55,6 +55,7 @@ public class RemoveBlockPacketTranslator extends PEPacketTranslatorToPC<Translat
         } else {
             //Not Creative
             DiggingMessage msgFinishBreak = new DiggingMessage(DiggingMessage.FINISH_DIGGING, packet.x, packet.y, packet.z, 1);
+            player.sendBlockChange(block.getLocation(), block.getType(), block.getData());
             return new Message[]{msgFinishBreak};
         }
         return null;
